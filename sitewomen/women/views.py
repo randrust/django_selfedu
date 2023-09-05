@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls import reverse
 
 
 # Create your views here.
@@ -17,7 +18,8 @@ def categories_by_slug(request, cat_slug):
 
 def archive(request, year):
     if year > 2023:
-        raise Http404()
+        uri = reverse('cats', arg=('music',))
+        return redirect(uri)
     return HttpResponse(f"<h1>List By Year</h1><p>slug: {year}")
 
 
