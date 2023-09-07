@@ -4,13 +4,30 @@ from django.urls import reverse
 
 
 # Create your views here.
+
+menu = ['About Site', 'Add aticle', 'Contact', 'Log in']
+
+class MyClass():
+    def __init__(self, a, b) -> None:
+        self.a = a
+        self.b = b
+
 def index(request):
     # t = render_to_string("women/index.html")
     # return HttpResponse(t)
-    return render(request, "women/index.html")
+    data = {
+        'title': 'MAIN PAGE',
+        'menu': menu,
+        'float': 28.56,
+        'lst': [1, 2, 'abc', True],
+        'set': {1,2,3,2,5},
+        'dict': {'key1': 'value1', 'key2': 'value2'},
+        'obj': MyClass(5, 10)
+        }
+    return render(request, "women/index.html", context=data)
 
 def about(request):
-    return render(request, "women/about.html")
+    return render(request, "women/about.html", {'title': 'About Site'})
 
 
 def categories(request, cat_id):
