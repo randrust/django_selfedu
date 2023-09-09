@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
@@ -7,22 +7,16 @@ from django.urls import reverse
 
 menu = ['About Site', 'Add aticle', 'Contact', 'Log in']
 
-class MyClass():
-    def __init__(self, a, b) -> None:
-        self.a = a
-        self.b = b
-
+data_db = [
+    {'id': 1, 'title': 'A. Djolly', 'content': 'About A. Djolly', 'is_published': True},
+    {'id': 2, 'title': 'M. Robby', 'content': 'About M. Robby', 'is_published': False},
+    {'id': 3, 'title': 'J. Roberts', 'content': 'About J. Roberts', 'is_published': True}  # noqa: E501
+    ]
 def index(request):
-    # t = render_to_string("women/index.html")
-    # return HttpResponse(t)
     data = {
         'title': 'MAIN PAGE',
         'menu': menu,
-        'float': 28.56,
-        'lst': [1, 2, 'abc', True],
-        'set': {1,2,3,2,5},
-        'dict': {'key1': 'value1', 'key2': 'value2'},
-        'obj': MyClass(5, 10)
+        'posts': data_db
         }
     return render(request, "women/index.html", context=data)
 

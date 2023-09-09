@@ -7,12 +7,21 @@
     <title>{{ main_title|default:"Main" }}</title>
 </head>
 <body>
-    <p>{{ menu|join:" | " }}</p>
-    <p>{{ float|add:"100"  }}</p>
-    <p>{{ lst|length }}</p>
-    <p>{{ set }}</p>
-    <p>{{ dict.key1 }}</p>
-    <p>{{ obj.a }}</p>
-    <h1>{{ title|upper }}</h1>
+   <p>{{ menu|join:' | ' }}</p>
+   <h1>{{ title|upper}}</h1>
+
+   <ul>
+    {% for p in posts %}
+    {% if p.is_published %}
+    <li>
+        <h2>{{ p.title }}</h2>
+        <p>{{ p.content }}</p>
+        {% if not forloop.last %}
+        <hr>
+        {% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+   </ul>
 </body>
 </html>
