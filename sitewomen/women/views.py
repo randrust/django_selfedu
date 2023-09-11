@@ -7,7 +7,7 @@ from django.urls import reverse
 
 menu = [
     {'title': 'About Site', 'url_name': 'about'},
-    {'title': 'Add aticle', 'url_name': 'add_aticle'},
+    {'title': 'Add article', 'url_name': 'add_article'},
     {'title': 'Contact', 'url_name': 'contact'},
     {'title': 'Log in', 'url_name': 'log_in'},
     ]
@@ -26,14 +26,14 @@ def index(request):
     return render(request, "women/index.html", context=data)
 
 def about(request):
-    return render(request, "women/about.html", {'title': 'About Site'})
+    return render(request, "women/about.html", {'title': 'About Site', 'menu': menu})
 
 
 def show_post(request, post_id):
     return HttpResponse(f'View post with id: {post_id}')
 
-def addaticle(request):
-    return HttpResponse('Add atcile')
+def addarticle(request):
+    return HttpResponse('Add artcile')
 
 def contact(request):
     return HttpResponse('Contact')
