@@ -13,7 +13,8 @@ menu = [
     ]
 
 data_db = [
-    {'id': 1, 'title': 'A. Djolly', 'content': 'About A. Djolly', 'is_published': True},
+    {'id': 1, 'title': 'A. Djolly', 'content': '''<h1>Анджелина Джоли</h1> (English Angelina Jolie [7], born Voight, formerly Jolie Pitt; born June 4, 1975, Los Angeles, California, USA) - American film, television and voice actress , film director, screenwriter, producer, fashion model, UN Goodwill Ambassador.
+    Winner of an Oscar, three Golden Globe Awards (the first actress in history to win the award three years in a row) and two Screen Actors Guild Awards.''', 'is_published': True},
     {'id': 2, 'title': 'M. Robby', 'content': 'About M. Robby', 'is_published': False},
     {'id': 3, 'title': 'J. Roberts', 'content': 'About J. Roberts', 'is_published': True}  # noqa: E501
     ]
