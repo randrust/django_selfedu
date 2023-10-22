@@ -18,11 +18,20 @@ data_db = [
     {'id': 2, 'title': 'M. Robby', 'content': 'About M. Robby', 'is_published': False},
     {'id': 3, 'title': 'J. Roberts', 'content': 'About J. Roberts', 'is_published': True}  # noqa: E501
     ]
+
+cats_db = [
+    {'id': 1, 'name' : "Actresses"},
+    {'id': 2, 'name' : "Singers"},
+    {'id': 3, 'name' : "Sportswomen"},
+
+
+]
 def index(request):
     data = {
         'title': 'MAIN PAGE',
         'menu': menu,
-        'posts': data_db
+        'posts': data_db,
+        'cat_selected': 0,
         }
     return render(request, "women/index.html", context=data)
 
@@ -41,6 +50,15 @@ def contact(request):
 
 def login(request):
     return HttpResponse('Log in')
+
+def show_category(request, cat_id):
+    data = {
+        'title': 'LIST BY CATEGORIES',
+        'menu': menu,
+        'posts': data_db,
+        'cat_selected': cat_id,
+        }
+    return render(request, "women/index.html", context=data)
 
 
 # def categories(request, cat_id):
